@@ -1,0 +1,13 @@
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v1
+metadata:
+  name: finalproject-hpa
+  namespace: default
+spec:
+  targetCPUUtilizationPercentage: 60
+  minReplicas: 3
+  maxReplicas: 10
+  scaleTargetRef:
+    name:  finalproject
+    kind: Deployment
+    apiVersion: apps/v1
